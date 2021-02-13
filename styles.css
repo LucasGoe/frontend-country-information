@@ -1,0 +1,21 @@
+body {
+    background-color: lightsteelblue;
+}
+
+.globe_container {
+    display: flex;
+    justify-content: center;
+}
+
+.globe {
+    width: 300px;
+
+}
+
+text {
+    width: 200px;
+}
+
+button {
+    margin: 10px;
+}
