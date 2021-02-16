@@ -1,89 +1,102 @@
-// 1. Maak een 'Zoek'-knop op de pagina
-// 2. en koppel deze aan een functie
-// 3. die de gegevens over `België` ophaalt en dit in de console logt.
-//
-//     _Tip:_ Als de de [documentatie](https://www.npmjs.com/package/axios) bekijkt en op `async` zoekt, vindt je een voorbeeld van een GET-request.
-//
-// ## 1. De gebruiker kan de knop zien
-//
-// - [x] Zoek knop maken (HTML)
-// - [x] id meegeven -> om met javascript te selecteren (HTML)
-//
-// ## 2. De gebruiker gaat klikken
-//
-// - [x] Knop selecteren (getElementById, opslaan in variabele)
-// - [x] Event listener & Event Handler toevoegen aan knop (addEventListener, click, async functie)
-//
-// ## 3. Wanneer de gebruiker klikt wordt mijn async function aangeroepen
-//
-// - [x] Variable met maken country -> "Belgie" (hardcoden)
-//     - [x] Variabele Url maken -> https://restcountries.eu/rest/v2/name/${country}?fullText=true
-// - [x] axios.get(url)
-// - [x] await toevoegen
-// - [x] response -> checken
 
-const button = document.getElementById("button");
-//console.log("SEARCHBUTTON: ", button)
+const searchButton = document.getElementById('button');
 
-async function searchCountry() {
-    //console.log("Hi!")
-    let country = "belgium";
-    //console.log("land: ", country);
-    // Let op: URL met backticks (`..url...`) !
-    const response = await axios.get(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
-    //console.log("response?: ", response.data[0].name);
-    const countryData = response.data[0];
-    console.log(countryData);
+searchButton.addEventListener("click", getCountryInfo);
 
-    const currencies = countryData.currencies;
-    console.log("CURRENCIES:", currencies);
-    const countryName = countryData.name;
-    console.log("COUNTRY: ", countryName)
-    const countryArea = countryData.subregion;
-    console.log("AREA: ", countryArea);
-    const countryPopulation = countryData.population;
-    const roundedPopulation = Math.round(countryPopulation/1000000 * 10) / 10;
-    console.log("POPULATION: ", roundedPopulation);
+const searchBar = document.getElementById('textbar');
+searchBar.addEventListener('keyup', setQuery);
 
-    const countryInfoString = `${countryData.name} is situated in ${countryData.subregion}. It has a population of ${roundedPopulation} mln people. `
-    console.log("COUNTRY INFO: ", countryInfoString);
+const countryInfoBox = document.getElementById('countries');
 
+let query = '';
 
+function setQuery(e) {
+    query = e.target.value;
+    if (e.keyCode === 13) {
+        getCountryInfo();
+    }
 }
-button.addEventListener("click", button);
-const searchCountries = searchCountry();
-console.log("zoek landen: ", searchCountries)
 
+async function getCountryInfo() {
 
+    searchBar.value = '';
 
-// formatCurrencies();
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = '';
 
+    const previousSearchResult = document.getElementById('country');
+    if (previousSearchResult) {
+        countryInfoBox.removeChild(previousSearchResult);
+    }
 
+    try {
+        const response = await axios.get(`https://restcountries.eu/rest/v2/name/${query}?fullText=true`);
 
-// 2. Maak op basis van de response de volgende string en log dit in de console:
-//    `[country-naam] is situated in [subarea-name]. It has a population of [amount] people.`
-//
-// - [x] Goed in de data kijken, waar zit deze info: -> loggen
-// - [x] variabelen maken: countryName, countryArea, countryPopulation
-// - [x] template string maken met -> `${countryName} ... etc`
-//
-// 3. Maak op basis van de response de volgende string en log dit in de console: `The capital is [city]`
-//
-// - [ ] Goed in de data kijken, waar zit deze info: -> loggen
-// - [ ] variabelen maken: countryCapital
-// - [ ] template string maken met -> `${countryCapital} ... etc`
-//
-// 4. Maak een functie die ongeacht het aantal currencies die in een land gebruikt worden, een string maakt. In een land kunnen één of twee currencies gebruikt worden:
-//     - 1 valuta: `and you can pay with [currency]'s`
-// - 2 valuta's: `and you can pay with [currency]'s and [currency]'s`
-//
-// - [ ] Goed in de data kijken, waar zit deze info: -> loggen
-// - [ ] variabele maken, en de currencies uit de data daaraan toekennen
-// - [ ] functie maken -> formatCurrencies()
-//     - [ ] aanroepen -> logje in de functie zetten om te checken
-// - [ ] input: currencies, parameter(s) toevoegen, argument(en) meegeven
-// - [ ] parameter loggen om te kijken of de input hebben
-// - [ ] if
-//     - [ ] 1 currency -> `and you can pay with [currency]'s`
-//     - [ ] 2 currency -> `and you can pay with [currency]'s and [currency]'s`
-//     - [ ] return de waarde `and you can pay with [currency]'s and [currency]'s`
+        const countryData = response.data[0];
+        // console.log("COUNTRY DATA: ", countryData);
+
+        const country = document.createElement('div');
+        country.setAttribute('id', 'country');
+
+        const flag = document.createElement('img');
+        flag.setAttribute('src', countryData.flag);
+        country.appendChild(flag);
+
+        const countryPopulation = Math.round(countryData.population / 1000000 * 10) / 10;
+
+        const countryString = `${countryData.name}`;
+        // console.log(countryString);
+        const countryName = document.createElement('div');
+        countryName.textContent = countryData.name;
+        country.appendChild(countryName);
+
+        const countryInfoString = document.createElement('p');
+        countryInfoString.textContent = `${countryData.name} is situated in ${countryData.subregion}. It has a population of ${countryPopulation} mln people.`;
+        country.appendChild(countryInfoString);
+        // console.log(countryInfoString);
+
+        const capitalString = document.createElement('p');
+        capitalString.textContent = `The capital is ${countryData.capital} ${formatCurrencies(countryData.currencies)}`; //
+        country.appendChild(capitalString);
+        // console.log(capitalString);
+
+        const languageString = document.createElement('p');
+        languageString.textContent =`${createLanguageDescription(countryData.languages)}`;
+        country.appendChild(languageString);
+        // console.log(languageString);
+
+        countryInfoBox.appendChild(country);
+    }   catch(e) {
+        console.error(e);
+        errorMessage.textContent = `${query} bestaat niet. Probeer het opnieuw!`;
+    }
+}
+
+    function createLanguageDescription(languages) {
+    let output = 'They speak ';
+
+    for (let i = 0; i < languages.length; i++) {
+        if (languages.length === 1) {
+            return output = output + languages[i].name;
+        }
+        if (i === languages.length - 1) {
+            return output = output + " and " + languages[i].name;
+        }
+        if (languages.length === 2 || i === languages.length - 2) {
+            output = output + languages[i].name;
+        } else {
+            output = output + languages[i].name + ", ";
+        }
+    }
+    return output;
+}
+
+    function formatCurrencies(currencies) {
+        for (let i = 0; i < currencies.length; i++) {
+            let output = 'and you can pay with ';
+            if (currencies.length === 2) {
+                return output + `${currencies[i].name} and ${currencies[i].name}'s`;
+            }
+            return output + `${currencies[i].name}'s`;
+        }
+    }
