@@ -61,7 +61,7 @@ async function getCountryInfo() {
         // console.log(capitalString);
 
         const languageString = document.createElement('p');
-        languageString.textContent =`${createLanguageDescription(countryData.languages)}`;
+        languageString.textContent = `${createLanguageDescription(countryData.languages)}`;
         country.appendChild(languageString);
         // console.log(languageString);
 
@@ -94,6 +94,7 @@ async function getCountryInfo() {
     function formatCurrencies(currencies) {
         for (let i = 0; i < currencies.length; i++) {
             let output = 'and you can pay with ';
+
             if (currencies.length === 2) {
                 return output + `${currencies[i].name} and ${currencies[i].name}'s`;
             }
