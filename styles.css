@@ -1,6 +1,8 @@
 body {
     margin: 150px;
     background-color: lightsteelblue;
+    background-image: url("./assets/world_map.jpeg");
+    background-size: cover;
 }
 
 .globe_container {
@@ -31,6 +33,7 @@ img {
 
 h1 {
     font-family: "American Typewriter";
+    font-size: 50px;
 }
 
 p {
