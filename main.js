@@ -68,7 +68,7 @@ async function getCountryInfo() {
         countryInfoBox.appendChild(country);
     }   catch(e) {
         console.error(e);
-        errorMessage.textContent = `${query} bestaat niet. Probeer het opnieuw!`;
+        errorMessage.textContent = `${query} does not exist. Try again! (in English)`;
     }
 }
 
