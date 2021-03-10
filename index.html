@@ -5,17 +5,25 @@
     <title>Let's search some countries</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--    <script src="./main.js" defer></script> // ipv onder de body plaatsen kun je ook 'defer' gebruiken-->
 </head>
 <body>
+    <div>
+        <nav class="nav-container">
+            <ul>
+                <li><strong>Home</strong></li>
+                <li><a href="./regions.html"><strong>World Regions</strong></a></li>
+            </ul>
+        </nav>
+    </div>
     <h1>Let's search some country information</h1>
     <div class=" globe_container">
         <img class="globe" src="./assets/search-globe.png" alt="Search Countries image">
     </div>
-        <input id   ="textbar" type="text" placeholder="Search country" />
+        <input id="textbar" type="text" placeholder="Search country" />
         <button id="button" type="submit"><i class="fa fa-search"></i></button>
         <p id="error-message"></p>
         <div id="countries"></div>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>

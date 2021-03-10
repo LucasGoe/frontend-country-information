@@ -1,12 +1,44 @@
 body {
     margin: 50px;
-    background-color: lightsteelblue;
+    /*background-color: lightsteelblue;*/
     /*background-image: url("./assets/world_map.jpeg");*/
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
+    font-family: "American Typewriter";
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    /*flex: 1;*/
+    justify-content: center;
+    width: 900px;
+    height: 60px;        /* let this be set to see how the items respond to 'align-items: stretch' */
+    margin: 0px;
+    font-size: 24px;
+}
+
+/*nav {*/
+/*    height: 40px;*/
+/*    padding: 20px;*/
+/*    color: white;*/
+/*    display: block;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+ul {
+    list-style-type: none;
+    display: flex;
+    align-items: flex-start;
+}
+
+li {
+    padding: 2px;
 }
 
 .globe_container {
@@ -32,22 +64,56 @@ button {
 img {
     width: 150px;
     margin: 20px;
-    /*border: 1px solid black;*/
+}
+
+.world-map {
+    width: 1000px;
 }
 
 h1 {
-    font-family: "American Typewriter";
     font-size: 50px;
+    display: flex;
+    justify-content: center;
+
 }
 
 p {
-    font-family: "American Typewriter";
     font-size: 15px;
     margin: 10px;
 }
 
+#countries {
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#worldregions {
+    /*list-style-type: none;*/
+    /*column-count: 3;*/
+    max-width: 1000px;
+    max-height: 2300px;
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    width: 900px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 13px;
+    margin: 1px;
+}
+
+.flag {
+    width: 20px;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
 div {
-    font-family: "American Typewriter";
     font-size: 15px;
     margin: 10px;
 }

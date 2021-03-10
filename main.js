@@ -1,7 +1,6 @@
 
 const searchButton = document.getElementById('button');
-
-searchButton.addEventListener("click", getCountryInfo);
+searchButton.addEventListener('click', getCountryInfo);
 
 const searchBar = document.getElementById('textbar');
 searchBar.addEventListener('keyup', setQuery);
@@ -33,7 +32,6 @@ async function getCountryInfo() {
         const response = await axios.get(`https://restcountries.eu/rest/v2/name/${query}?fullText=true`);
 
         const countryData = response.data[0];
-        // console.log("COUNTRY DATA: ", countryData);
 
         const country = document.createElement('div');
         country.setAttribute('id', 'country');
@@ -45,7 +43,7 @@ async function getCountryInfo() {
         const countryPopulation = Math.round(countryData.population / 1000000 * 10) / 10;
 
         const countryString = `${countryData.name}`;
-        // console.log(countryString);
+
         const countryName = document.createElement('div');
         countryName.textContent = countryData.name;
         country.appendChild(countryName);
@@ -53,19 +51,17 @@ async function getCountryInfo() {
         const countryInfoString = document.createElement('p');
         countryInfoString.textContent = `${countryData.name} is situated in ${countryData.subregion}. It has a population of ${countryPopulation} mln people.`;
         country.appendChild(countryInfoString);
-        // console.log(countryInfoString);
 
         const capitalString = document.createElement('p');
         capitalString.textContent = `The capital is ${countryData.capital} ${formatCurrencies(countryData.currencies)}`; //
         country.appendChild(capitalString);
-        // console.log(capitalString);
 
         const languageString = document.createElement('p');
         languageString.textContent = `${createLanguageDescription(countryData.languages)}`;
         country.appendChild(languageString);
-        // console.log(languageString);
 
         countryInfoBox.appendChild(country);
+
     }   catch(e) {
         console.error(e);
         errorMessage.textContent = `${query} does not exist. Try again! (in English)`;

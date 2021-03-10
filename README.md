@@ -24,7 +24,7 @@ Check bij de pseudo-antwoorden of je geen stappen overgeslagen hebt. Begin dan p
 
 ## Plan de campagne
 1. Maak een 'Zoek'-knop op de pagina en koppel deze aan een functie die de gegevens over `België` ophaalt en dit in de console logt. 
-_Tip:_ Als de de [documentatie](https://www.npmjs.com/package/axios) bekijkt en op `async` zoekt, vindt je een voorbeeld van een GET-request.
+_Tip:_ Als je de [documentatie](https://www.npmjs.com/package/axios) bekijkt en op `async` zoekt, vindt je een voorbeeld van een GET-request.
 
 2. Maak op basis van de response de volgende string en log dit in de console: `[country-naam] is situated in [subarea-name]. It has a population of [amount] people.`
 3. Maak op basis van de response de volgende string en log dit in de console: `The capital is [city]`
