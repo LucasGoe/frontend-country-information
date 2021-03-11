@@ -103,6 +103,31 @@ div {
     margin: 10px;
 }
 
+.red {
+    color: #D24E5B;
+}
+
+.green {
+    color: #4C834B;
+}
+
+.yellow {
+    color: #FFD435;
+}
+
+.purple {
+    color: #A652BA;
+}
+
+.blue {
+    color: #5575C1;
+}
+
+.default {
+    color: black;
+}
+
+
 /*color picker:*/
 /*color code red = #D24E5B*/
 /*color code green = #4C834B*/

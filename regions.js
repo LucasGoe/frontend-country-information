@@ -25,6 +25,7 @@ async function getAllCountries() {
 
            const countryNameElement = document.createElement('span');
            countryNameElement.textContent = name;
+           countryNameElement.setAttribute('class', setCountryRegionColor(region));
            countryElement.appendChild(countryNameElement);
 
 
@@ -38,6 +39,23 @@ async function getAllCountries() {
 }
 getAllCountries()
 
+function setCountryRegionColor(region) {
+    switch (region) {
+        case 'Africa':
+            return 'blue';
+        case 'Americas':
+            return 'green';
+        case 'Asia':
+            return 'red';
+        case 'Europe':
+            return 'yellow';
+        case 'Oceania':
+            return 'purple';
+        default:
+            return 'black';
+    }
+}
+setCountryRegionColor()
 
 
 //    Voor je begint
