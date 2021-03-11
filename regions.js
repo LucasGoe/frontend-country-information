@@ -1,5 +1,5 @@
 
-const allCountriesInfoBox = document.getElementById('countries');
+const allCountriesInfoBox = document.getElementById('worldregions');
 
 async function getAllCountries() {
     try {
@@ -15,24 +15,23 @@ async function getAllCountries() {
        data.map((country) => {
            const { flag, name, region, population } = country;
 
-           const countryFlag = document.createElement('img');
-           countryFlag.setAttribute('src', flag);
-           countryFlag.setAttribute('class', 'flag');
-           worldregions.appendChild(countryFlag);
+           const countryElement = document.createElement("li");
+           countryElement.setAttribute('class', 'country-clickable');
 
-           const countryName = document.createElement('span');
-           countryName.textContent = `${name}`;
-           worldregions.appendChild(countryName);
+           const countryFlagElement = document.createElement('img');
+           countryFlagElement.setAttribute('src', flag);
+           countryFlagElement.setAttribute('class', 'flag');
+           countryElement.appendChild(countryFlagElement);
 
-
-
-
-        })
+           const countryNameElement = document.createElement('span');
+           countryNameElement.textContent = name;
+           countryElement.appendChild(countryNameElement);
 
 
+           allCountriesInfoBox.appendChild(countryElement);
+        });
 
     }
-
     catch (e) {
         console.log(e);
     }

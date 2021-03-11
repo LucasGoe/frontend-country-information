@@ -9,8 +9,9 @@ body {
 
 .nav-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 900px;
     height: 60px;
     margin: 0px;
@@ -19,12 +20,13 @@ body {
 
 ul {
     list-style-type: none;
-    display: flex;
+    display: inline-block;
     align-items: flex-start;
 }
 
 li {
     padding: 2px;
+    display: inline-block;
 }
 
 .globe_container {
@@ -78,8 +80,8 @@ p {
 }
 
 #worldregions {
-    max-height: 2300px;
-    width: 900px;
+    max-height: 1700px;
+    width: 1000px;
     background-color: whitesmoke;
     border: 1px solid lightgrey;
     padding: 30px;
@@ -100,3 +102,11 @@ div {
     font-size: 15px;
     margin: 10px;
 }
+
+/*color picker:*/
+/*color code red = #D24E5B*/
+/*color code green = #4C834B*/
+/*color code yellow = #FFD435*/
+/*color code purple = #A652BA*/
+/*color code blue = #5575C1*/
+/*color code default = black*/
