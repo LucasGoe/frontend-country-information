@@ -69,20 +69,19 @@ p {
 }
 
 #countries {
+    width: 1000px;
     background-color: whitesmoke;
     border: 1px solid lightgrey;
-    width: 1000px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
 #worldregions {
-    max-width: 1000px;
     max-height: 2300px;
+    width: 900px;
     background-color: whitesmoke;
     border: 1px solid lightgrey;
-    width: 900px;
     padding: 30px;
     display: flex;
     flex-direction: column;
