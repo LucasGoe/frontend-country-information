@@ -1,0 +1,137 @@
+body {
+    margin: 50px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "American Typewriter", sans-serif;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height: 60px;
+    margin: 0px;
+    font-size: 24px;
+}
+
+ul {
+    list-style-type: none;
+    display: inline-block;
+    align-items: flex-start;
+}
+
+li {
+    padding: 2px;
+    display: inline-block;
+}
+
+.globe_container {
+    display: flex;
+    justify-content: left;
+    margin: 40px;
+}
+
+.globe {
+    width: 300px;
+
+}
+
+text {
+    width: 200px;
+    margin: 5px;
+}
+
+button {
+    margin: 5px;
+}
+
+img {
+    width: 150px;
+    margin: 20px;
+}
+
+.world-map {
+    width: 1000px;
+}
+
+h1 {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+
+}
+
+p {
+    font-size: 15px;
+    margin: 10px;
+}
+
+#countries {
+    width: 1000px;
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#worldregions {
+    max-height: 1700px;
+    width: 1000px;
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 13px;
+    margin: 1px;
+}
+
+.flag {
+    width: 20px;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+div {
+    font-size: 15px;
+    margin: 10px;
+}
+
+.red {
+    color: #D24E5B;
+}
+
+.green {
+    color: #4C834B;
+}
+
+.yellow {
+    color: #FFD435;
+}
+
+.purple {
+    color: #A652BA;
+}
+
+.blue {
+    color: #5575C1;
+}
+
+.default {
+    color: black;
+}
+
+
+/*color picker:*/
+/*color code red = #D24E5B*/
+/*color code green = #4C834B*/
+/*color code yellow = #FFD435*/
+/*color code purple = #A652BA*/
+/*color code blue = #5575C1*/
+/*color code default = black*/
